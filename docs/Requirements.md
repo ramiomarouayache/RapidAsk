@@ -44,7 +44,9 @@ RapidAsk automatically detects compatibility issues and notifies the end-user to
 
 <details>
   <summary>OpenAI Alternatives...</summary>
-
+    
+    ![alternatives](https://images.ctfassets.net/lzny33ho1g45/6VcDGWbQfWElVwAiMWLk9c/54a88cca295511333240c2919fc3f084/best-ai-productivity.jpg?w=1520&fm=jpg&q=30&fit=thumb&h=760)
+    
   You can use alternative AI services instead of OpenAI API, but there are a few considerations:
 
   1. **Features & API Calls**:  

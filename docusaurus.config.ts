@@ -24,6 +24,7 @@ const config: Config = {
   onBrokenLinks: 'ignore',
   onBrokenMarkdownLinks: 'warn',
   deploymentBranch: 'gh-pages',
+  trailingSlash: true,
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
@@ -66,11 +67,6 @@ const config: Config = {
         {
           href: 'mailto:rami.omar.ayache@gmail.com',
           label: 'Support',
-          position: 'right',
-        },
-        {
-          href: 'https://github.com/facebook/docusaurus',
-          label: 'GitHub',
           position: 'right',
         },
         {
