@@ -37,7 +37,7 @@ const config: Config = {
     [
       '@docusaurus/plugin-google-gtag',
       {
-        trackingID: 'GTM-5JTQWMMT',
+        trackingID: 'G-0V06PRVBS',
         anonymizeIP: true,
       },
     ],
@@ -82,10 +82,6 @@ const config: Config = {
           position: 'right',
         },
       ],
-    },
-    gtag: {
-      trackingID: 'G-0V06PRVBS', // Your Google Analytics 4 ID (for GA4)
-      anonymizeIP: true,
     },
     prism: {
       theme: prismThemes.github,
