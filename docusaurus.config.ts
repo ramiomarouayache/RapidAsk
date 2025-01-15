@@ -83,6 +83,10 @@ const config: Config = {
         },
       ],
     },
+    gtag: {
+      trackingID: 'G-0V06PRVBS', // Your Google Analytics 4 ID (for GA4)
+      anonymizeIP: true,
+    },
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
