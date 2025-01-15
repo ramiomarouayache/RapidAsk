@@ -33,15 +33,6 @@ const config: Config = {
     defaultLocale: 'en',
     locales: ['en'],
   },
-  plugins: [
-    [
-      '@docusaurus/plugin-google-gtag',
-      {
-        trackingID: 'G-0V06PRVBS',
-        anonymizeIP: true,
-      },
-    ],
-  ],
   presets: [
     [
       'classic',
@@ -57,6 +48,9 @@ const config: Config = {
         },
         theme: {
           customCss: './src/css/custom.css',
+        },
+        googleTagManager: {
+          containerId: 'GTM-5JTQWMMT'
         },
       } satisfies Preset.Options,
     ],
