@@ -28,6 +28,10 @@ as openAI no longer offers a Free Tier. API usage requires `minimum $5` balance.
 
 ![FlutterFlow App Banner](/img/billing.png)
 
+- **Test**: After obtaining your API key `sk-proj****`, test it in FlutterFlow by navigating to **API Calls > openaiCall > Response & Test**. You should receive a `200` status response. If not, re-check your balance and API key accessibility in your OpenAI dashboard as described above.
+
+---
+
 ## 2. Plateform support
 
 RapidAsk relies on [Speech-to-text](https://pub.dev/packages/speech_to_text) package, which is primarily focused on mobile (iOS/Android) and macOS platforms, with ongoing support and updates for additional platforms.
@@ -38,9 +42,10 @@ RapidAsk relies on [Speech-to-text](https://pub.dev/packages/speech_to_text) pac
 | **Speech**| ✅      | ✅  | ✅    | ✅   | ✘     | ✘       |
 
 
-RapidAsk automatically detects compatibility issues and notifies the end-user to take quick action to fix. However, it's important to note that some browsers may have issues, see [here]
+RapidAsk automatically detects compatibility issues and notifies the end-user to take quick action to fix. However, it's important to note that some browsers may have issues, see [here](https://caniuse.com/?search=Web%20Speech%20API)
 
 
+---
 
 <details>
   <summary>OpenAI Alternatives...</summary>

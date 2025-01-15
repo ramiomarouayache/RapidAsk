@@ -28,7 +28,9 @@ You can create your own speaking character using an image or a video (video is r
 
 ---
 
-Once you get access, you will get more details on how to convert your character’s video into a transparent Lottie animation file. This ensures the highest resolution with the smallest file size, making it perfect for different use cases.
+...Once you get access, you will get more details on how to convert your character’s video into a transparent Lottie animation file. This ensures the highest resolution with the smallest file size, making it perfect for different use cases...
+
+---
 
 <details>
 <summary>Sync character's mouth movements</summary>
@@ -43,5 +45,13 @@ Once you get access, you will get more details on how to convert your character�
 ps:this technique is currently complex to implement within FlutterFlow,, but we may consider it in the future.
 
 some refrences: [basic-lip-sync](https://www.youtube.com/watch?v=JTz5slARQpA&pp=ygUMI2xpcHNpbmd2aXJh), [dynamic-lottie](https://www.youtube.com/watch?v=XX8jwNNV0U0), [lottie-frames](https://github.com/xvrh/lottie-flutter/issues/164)
+
+</details>
+<details>
+  <summary>Ongoing conversation...</summary>
+    
+    Since the OpenAI API is stateless, you can maintain an ongoing conversation with saved history by creating an assistant in the OpenAI dashboard. Then, you can access it via the API endpoint.
+    
+    more about assistants [in this video](https://www.youtube.com/watch?v=LQ5xtsp7gYo)
 
 </details>

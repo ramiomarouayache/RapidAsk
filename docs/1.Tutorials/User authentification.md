@@ -78,7 +78,7 @@ For enhanced security, initialize the `trialCount` field using Firebase Cloud Fu
 
 After this, prevent client-side updates to `trialCount` by setting a decrement-only rule, like this:
 
-  ```plaintext
+  ```javascript
   rules_version = '2'; 
   service cloud.firestore {
     match /databases/{database}/documents {

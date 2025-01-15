@@ -35,7 +35,7 @@ You can ignore `stripeTestSecretKey` for now, as we’ll cover how to set up you
 2. **Change AI Reply Tone:** 
    Change the tone of the AI's responses by selecting a different voiceId in the `AppState > voiceId` OpenAI options (Alloy, Echo, Fable, Onyx, Nova, Shimmer). Find the perfect tone for your audience. more [here](https://platform.openai.com/docs/guides/text-to-speech#quickstart)
 
-   ![FlutterFlow App Banner](/img/dev_vars.webp)
+   ![FlutterFlow App Banner](/img/voiceId.webp)
 
 3. **Display Options:**  
    To enhance the user experience, we display the end-user’s recorded question (prompt) text at the bottom of the character. You can also choose to display the answer reply as text or hide any text entirely. Learn more about this [here].

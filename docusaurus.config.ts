@@ -5,7 +5,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'RapidAsk Documentation',
+  title: 'RapidAsk',
   tagline: 'RapidAsk',
   favicon: 'img/favicon.ico',
   staticDirectories: ['public', 'static'],
@@ -33,7 +33,15 @@ const config: Config = {
     defaultLocale: 'en',
     locales: ['en'],
   },
-
+  plugins: [
+    [
+      '@docusaurus/plugin-google-gtag',
+      {
+        trackingID: 'GTM-5JTQWMMT',
+        anonymizeIP: true,
+      },
+    ],
+  ],
   presets: [
     [
       'classic',
@@ -57,7 +65,7 @@ const config: Config = {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
-      title: 'RapidAsk documentation',
+      title: 'RapidAsk',
       logo: {
         alt: 'RapidAsk_logo',
         src: 'img/logo.svg',
