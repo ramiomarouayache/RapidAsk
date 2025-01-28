@@ -4,9 +4,9 @@ title: 🌐 API calls
 sidebar_position: 4
 ---
 
-# API calls
 
-## 1. **OpenAI API - Generating Reply from User's Speech**
+
+### 1. **OpenAI Completion**
 
 - **Action Trigger**: When the user presses the **Start Record** button, the app records their speech and converts it into text.
 - **API Call**: Once the text is generated, the app sends the speech text to OpenAI's endpoint for a reply.
@@ -14,7 +14,7 @@ sidebar_position: 4
    ![prompt](/img/openai-api.webp)
 
 
-## 3. **Stripe API - Checkout Session**
+### 2. **Stripe - Checkout Session**
 
 - **Action Trigger**: When the user clicks the "Subscribe" button, two actions occur:
 

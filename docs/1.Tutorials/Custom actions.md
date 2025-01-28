@@ -4,7 +4,7 @@ title: 🕹️ Custom actions
 sidebar_position: 6
 ---
 
-# Custom actions
+
 
 This template includes many custom actions that gives you more control in your app. These actions are fully commented to help understand how they work and modify them if needed, here are the most important ones:
 

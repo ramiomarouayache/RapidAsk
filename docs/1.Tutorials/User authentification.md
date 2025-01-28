@@ -5,55 +5,54 @@ sidebar_position: 5
 ---
 
 
-# **Auth and Trial Count Setup**
+### 1. **Firebase auth**
 
-### 1. **Replace Firebase Linking in FlutterFlow**
+- **Remove Existing Firebase Link**:  
+  In your FlutterFlow project settings, disconnect any existing Firebase project (default project)
 
-- **Remove Existing Firebase Link**: Go to your **FlutterFlow project settings** and disconnect the existing Firebase project.
-  
-- **Link Your Own Firebase Project**:
-  - Use the **auto setup wizard** in FlutterFlow, or manually create a Firebase project in the Firebase Console.
-  - In the **Firebase Console**: Go to **Project Settings** > **Users & Permissions** and add `firebase@flutterflow.com` as an editor. This will allow FlutterFlow to easily access your Firebase project.
-  - In the Firebase console, add your authentication provider (e.g., email/password, Google Auth, Apple Auth). You can find a guide for this [here].
+- **Link Your Own Firebase Project**:  
+  - Use the `auto setup wizard` in FlutterFlow, or create a Firebase project manually in the Firebase Console.  
+  - In Firebase Console, go to `Project Settings` > `Users & Permissions` and add `firebase@flutterflow.com` as an editor.  
+  - Add your authentication provider (e.g., email/password, Google, Apple). You can follow the setup guide [here].
 
-### 2. **Set Up Firestore Collection for Users**
+### 2. **Trial Counter**
 
-Once you link Firebase, ensure the `users` collection exists in Firestore and has the correct fields (remove unnecessary fields based on your needs):
+- Ensure you have a `users` collection in Firestore with the necessary fields.  
+- Add a `trialCount` field (integer) to the `users` collection.
 
-- Add `trialCount` as an integer field in the `users` collection (if it doesn't already exist).
+- **Configure Firestore Rules**
 
-### 3. **Firestore Rules**
+  Here’s an example of Firestore rules to manage user data:
 
-Ensure your Firestore rules are set correctly to manage user data and authentication. Here’s an example:
-
-```plaintext
-rules_version = '2';
-service cloud.firestore {
-  match /databases/{database}/documents {
-    match /users/{document} {
-      allow create: if request.auth != null;
-      allow read: if request.auth != null;
-      allow write: if request.auth != null;
-      allow delete: if false;
+  ```plaintext
+  rules_version = '2';
+  service cloud.firestore {
+    match /databases/{database}/documents {
+      match /users/{document} {
+        allow create: if request.auth != null;
+        allow read: if request.auth != null;
+        allow write: if request.auth != null;
+        allow delete: if false;
+      }
     }
   }
-}
-```
+  ```
 
-For better security, these rules will be updated later during deployment when Cloud Functions are used.
+  > **Note:** These rules will be updated later during deployment when Cloud Functions are used for better security.
 
-### 4. **Setup Trial Count**
+### 3. **Manage Trial Counter**
 
-There are two main places where you will manage the `trialCount`:
+There are two key points to manage the `trialCount`:
 
-#### 1. **On User Signup**:
-   When a new user signs up (via Firebase Authentication or third-party auth like Google/Apple), do the following:
-   - Create a new `user` document in Firestore.
-   - Set the initial `trialCount` to the desired value (e.g., 10).
+- **On User Signup**:  
+  When a user signs up (via Firebase Auth or third-party like Google/Apple), create a new `user` document in Firestore and set the initial `trialCount` (e.g., 10).
 
-#### 2. **On Main Feature Usage** (e.g., Voice Recording):
-   - Each time the user interacts with the core features (like recording), decrement the `trialCount`.
-   - Add an action to check if the `trialCount` is above 0 before allowing the action (e.g., voice response).
+- **On Feature Usage**:  
+  Each time the user interacts with the core features (e.g., voice recording), decrement the `trialCount`.  
+  - Add an action to check if `trialCount` is above 0 before allowing further actions (e.g., voice response).
+  
+> **Note:** We always recommend moving the management of sensitive fields, like trialCounter, to a backend or BaaS to reduce vulnerabilities.
+
 
 ---
 

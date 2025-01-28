@@ -4,105 +4,49 @@ title: 🛡️ Security
 sidebar_position: 9
 ---
 
-# Security
 
-This guide outlines essential security practices for securing your Flutter app, especially when using **FirebaseAuth**, **Firestore**, **Stripe**, and other services for **Web**, **IOS** and **Android** platform.
+### 1. **Securing Firebase Authentication**
+- **Enable Multi-Factor Authentication (MFA)**: Add an extra layer of security by requiring a second factor (e.g., SMS or authenticator app).
+- **Enforce Strong Passwords**: Ensure users set strong passwords in Firebase Authentication settings.
+- **Role-Based Access Control (RBAC)**: Use Firestore rules to limit data access based on user roles.
 
-
-<details>
-  <summary><strong>Securing Firebase Authentication</strong></summary>
-
-### 1. **Use Strong Authentication Methods**
-   - **Enable Multi-Factor Authentication (MFA)**: Add an extra layer of security by requiring users to authenticate with both their password and a second factor (like an SMS code or authenticator app).
-   - **Enforce Strong Passwords**: In Firebase Authentication settings, enforce strong password requirements to prevent easy-to-guess credentials.
-
-### 2. **Use Role-Based Access Control (RBAC) with Firestore Rules**
-   - Limit data access based on user roles, ensuring users only access the data they're authorized to view or modify.
-   - Example Firestore security rules:
+   **Example Firestore Rules**:
    ```js
    rules_version = '2'; 
    service cloud.firestore {
-     match /databases/{database}/documents {
-       match /users/{userId} {
-         // Allow authenticated users to read their own document
-         allow read: if request.auth != null && request.auth.uid == userId;
-
-         // Allow Cloud Functions to create documents, but only with necessary fields (e.g., 'trialCount')
+   match /databases/{database}/documents {
+      match /users/{userId} {
+         allow read, update: if request.auth != null && request.auth.uid == userId;
          allow create: if request.auth != null && request.resource.data.keys().hasOnly(['trialCount']);
-
-         // Allow authenticated users to update their 'trialCount', but only if it's being decremented
-         allow update: if request.auth != null
-                        && request.auth.uid == userId
-                        && request.resource.data.keys().hasOnly(['trialCount'])
-                        && request.resource.data.trialCount <= resource.data.trialCount;
-
-         // Prevent arbitrary writes or document deletions
-         allow write: if false;
-         allow delete: if false;
-       }
-     }
+         allow write, delete: if false;
+      }
+   }
    }
    ```
 
-</details>
 
-<details>
-  <summary><strong>Securing Stripe Integration</strong></summary>
+### 2. **Securing Stripe Integration**
+- **Store API Keys Securely**: Use **Flutter Secure Storage** for your Stripe API keys and tokens.
+- **Server-Side Purchase Verification**: Always verify payments server-side to prevent fraud.
+- **Move Sensitive API Calls to Firebase Cloud Functions**: Handle sensitive API calls (e.g., payment processing) on the backend to protect API keys from exposure.
 
-### 1. **API Key Security**
-   - **Store Keys Securely**: Use secure storage options like **Flutter Secure Storage** to store your Stripe API keys and tokens.
-   - **Avoid Hardcoding Keys**: Never expose your API keys or private tokens in your frontend codebase or client-side application. Always keep them on the server side.
 
-### 2. **Verify Purchases Server-Side**
-   - **Server-Side Verification**: Always use Stripe's server-side endpoint to validate payments and ensure the legitimacy of transactions, preventing fraud.
+### 3. **Mobile Security Best Practices (Android & iOS)**
+- **Obfuscate Code**: Use ProGuard (Android) and Swift obfuscation (iOS) to protect your source code.
+- **Secure API Calls**: Ensure all API calls use HTTPS and validate SSL certificates to prevent man-in-the-middle attacks.
+- **Store Sensitive Data Securely**: Use **Keychain** (iOS) or **EncryptedSharedPreferences**/**Android Keystore** (Android) for storing sensitive data.
 
-### 3. **Move Sensitive API Calls to Firebase Cloud Functions**
-   - **Why Move API Calls to Backend**: It's crucial to move sensitive API calls like payment processing to the server backend (e.g., Firebase Cloud Functions) rather than handling them directly on the client. This prevents attackers from intercepting keys or tokens in the client-side code using browser tools.
-   - **Example Firebase Cloud Function for Webhook**: Handle Stripe webhooks in Firebase Cloud Functions to securely update the user's subscription status in Firestore based on the payment outcome.
 
-</details>
+### 4. **Handling User Data Securely**
+- **Minimize Data Collection**: Only collect essential data and comply with regulations like GDPR.
+- **Use Secure Communication**: Ensure all data transfers are encrypted with HTTPS.
 
-<details>
-  <summary><strong>Best Practices for Mobile Security (Android and iOS)</strong></summary>
 
-### 1. **Obfuscate Code**
-   - **Android**: Enable ProGuard in `build.gradle` to obfuscate and minify your code, making it harder for attackers to reverse-engineer.
-   - **iOS**: Enable Swift code obfuscation through Xcode settings to protect your app's source code from unauthorized access.
+### 5. **Testing Security**
+- **Use Firebase Emulator**: Test Firebase Authentication and Firestore locally before going live.
+- **Perform Vulnerability Scans**: Use tools like **OWASP ZAP** or **Burp Suite** to scan your app for vulnerabilities.
+- **Test Permissions on Real Devices**: Always test your app on real devices to ensure data security settings are enforced correctly.
 
-### 2. **Secure API Calls**
-   - **Use HTTPS**: Always ensure that your network calls are made over HTTPS to encrypt data in transit.
-   - **Validate SSL Certificates**: Protect your app from man-in-the-middle attacks by validating SSL certificates on both Android and iOS devices.
-
-### 3. **Store Sensitive Data Securely**
-   - **iOS**: Use the **Keychain** to securely store sensitive data such as authentication tokens.
-   - **Android**: Store sensitive data in **EncryptedSharedPreferences** or use **Android Keystore** for better protection of private data.
-
-</details>
-
-<details>
-  <summary><strong>Handling User Data Securely</strong></summary>
-
-### 1. **Minimize Data Collection**
-   - Only collect the necessary user data and be transparent about what data you are collecting. Follow data protection principles and comply with regulations like GDPR, if applicable.
-
-### 2. **Use Secure Communication for Data Transfer**
-   - Ensure that all user data is transferred securely over HTTPS to prevent unauthorized access and protect data integrity during transit.
-
-</details>
-
-<details>
-  <summary><strong>Testing Security</strong></summary>
-
-### 1. **Use Firebase Emulator Suite for Local Testing**
-   - Test Firebase Authentication and Firestore locally using the Firebase Emulator Suite to ensure everything works correctly before going live.
-
-### 2. **Perform Vulnerability Scans**
-   - Use security tools like **OWASP ZAP** or **Burp Suite** to perform security audits and vulnerability scanning on your app.
-
-### 3. **Test Permissions on Real Devices**
-   - Always test your app on real Android and iOS devices to ensure that the permissions and data security settings are enforced correctly.
-
-</details>
 
 
 

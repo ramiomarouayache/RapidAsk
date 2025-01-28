@@ -4,9 +4,8 @@ title: 🚧 Testing & Troubleshoot
 sidebar_position: 8
 ---
 
-# Testing & Troubleshooting
 
-## Testing Your App
+### Testing Your App
 
 1. **Running the App Locally (FlutterFlow Built-In Run Mode)**  
    - Go to the **Run** tab in FlutterFlow.
@@ -21,7 +20,7 @@ sidebar_position: 8
    - Use `fetchSpeechAndPlayWeb` for web and `fetchSpeechAndPlayMobile` for mobile in the onTap action of the `stopRecordingButton`, depending on the platform.
 
 
-## Debugging & Troubleshooting
+### Debugging & Troubleshooting
 
 1. **Verifying Permissions**
    - **Android**: Ensure microphone permissions are set in `AndroidManifest.xml`.

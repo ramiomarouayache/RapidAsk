@@ -4,31 +4,18 @@ title: 🤖 Visual characters
 sidebar_position: 7
 ---
 
-# Visual Characters
+### 1. Speaking characters:
 
 We use **Lottie animation** characters to mimic AI voice replies. These animations are lightweight and offer great performance on both web and mobile apps. You will get access to 5 unique, high-quality speaking characters with transparent backgrounds for various use cases.
 
 ![ai_characters](/img/characterss.webp)
 
-### Build Your Own:
+### 2. Build Your Own:
 
 You can create your own speaking character using an image or a video (video is recommended). There are free tools available online to help you with this, and you'll find a variety of ready-made avatars to choose from, ranging from realistic to cartoon styles.
 
-#### 1. **Using an Image**:
-   - Ensure your image is a high-quality, front-facing portrait of a character (with eyes visible).
-   - Once your image is ready, you can use AI platforms like **Heygen** to animate it and bring your character to life. 
-   - Sign up at [Heygen](https://heygen.com/?sid=rewardful&via=rami-omar), then navigate to **Dashboard > Avatars > Create Video Avatars** and upload your image.
-   - After a few minutes, your animated video avatar will be ready to go.
-   - **Important**: Be sure to review Heygen's policies regarding commercial use to ensure compliance with their terms.
 
-#### 2. **Using a Video**:
-   - Once your video is ready, the next step is to convert it into a transparent Lottie animation file. Lottie animations are perfect for use in apps and websites due to their small file size and high resolution.
-
-   ![ai_head_examples](/img/talking-head.webp)
-
----
-
-...Once you get access, you will get more details on how to convert your character’s video into a transparent Lottie animation file. This ensures the highest resolution with the smallest file size, making it perfect for different use cases...
+Once you get access, ou’ll get detailed instructions on how to convert your character’s video into a Lottie animation.
 
 ---
 
