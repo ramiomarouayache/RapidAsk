@@ -65,7 +65,25 @@ const config: Config = {
         src: 'img/logo.svg',
       },
       items: [
-
+        {
+          href: '/',
+          label: 'Available on :',
+          position: 'right',
+        },
+        {
+          type: 'html',
+          position: 'right',
+          value: `<a href="https://ramiayache.gumroad.com/l/rapidaskapp" target="_blank" title="Gumroad">
+                    <img src="https://cdn.brandfetch.io/idMw8qr5lW/w/400/h/400/theme/dark/icon.png?c=1bxid64Mup7aczewSAYMX&t=1667593186460" alt="Gumroad" style="height: 24px;" />
+                  </a>`,
+        },
+        {
+          type: 'html',
+          position: 'right',
+          value: `<a href="https://ramiomar.lemonsqueezy.com/buy/bbbb90f8-f674-45e0-af78-34971da53e96" target="_blank" title="Lemon Squeezy">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIWm8Ii4M4dO3OkunUpQf1M1G_6_z6jlVzyQ&s" alt="LemonSqueezy" style="height: 24px; " />
+                  </a>`,
+        },
         {
           href: 'mailto:rami.omar.ayache@gmail.com',
           label: 'Support',
